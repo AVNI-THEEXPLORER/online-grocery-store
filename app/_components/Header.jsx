@@ -45,7 +45,7 @@ function Header() {
                 <DropdownMenu>
                     <DropdownMenuTrigger aschild="true">
 
-                        <h2 className=" flex hiddenmd:flex gap-2 items-center border rounded-full p-2 px-10 bg-slate-200 cursor-pointer outline-none">
+                        <h2 className=" hidden md:flex gap-2 items-center border rounded-full p-2 px-10 bg-slate-200 cursor-pointer outline-none">
                             <LayoutGrid className="h-5 w-5" />
                             Catagory
                         </h2>
@@ -53,12 +53,20 @@ function Header() {
 
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
-                        <DropdownMenuLabel>Browse Catagory</DropdownMenuLabel>
+                        <DropdownMenuLabel>Browse Category</DropdownMenuLabel>
 
                         <DropdownMenuSeparator />
                         {categoryList.map((category, index) => (
                             <DropdownMenuItem key={index}>
-                                <h2>{category?.attributes?.name}</h2>
+                                
+                                <Image src={process.env.NEXT_PUBLIC_API_URL+ category?.icon?.formats?.thumbnail?.url} 
+                                unoptimized={true}
+
+                                alt="logo" 
+                                width={25} 
+                                height={25} />
+
+                                <h2>{category?.name}</h2>
                             </DropdownMenuItem>
                         ))}
 
