@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "categories",
+  "collectionName": "sliders",
   "info": {
-    "singularName": "category",
-    "pluralName": "categories",
-    "displayName": "Category"
+    "singularName": "slider",
+    "pluralName": "sliders",
+    "displayName": "Slider"
   },
   "options": {
     "draftAndPublish": true
@@ -14,7 +14,7 @@
     "name": {
       "type": "string"
     },
-    "icon": {
+    "image": {
       "allowedTypes": [
         "images",
         "files",
@@ -24,14 +24,12 @@
       "type": "media",
       "multiple": true
     },
-    "color": {
-      "type": "string"
-    },
-    "products": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "mappedBy": "categories"
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "home",
+        "banner"
+      ]
     }
   }
 }

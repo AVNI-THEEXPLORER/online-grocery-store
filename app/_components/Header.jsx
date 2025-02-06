@@ -27,7 +27,9 @@ function Header() {
         GlobalApi.getCategory().then(resp => {
 
             // comment this console log 
-            console.log("CategoryList Response:", resp.data.data);
+
+            // console.log("CategoryList Response:", resp.data.data);
+
             setCategoryList(resp.data.data);
         })
     }
@@ -57,16 +59,22 @@ function Header() {
 
                         <DropdownMenuSeparator />
                         {categoryList.map((category, index) => (
-                            <DropdownMenuItem key={index}>
+                            <DropdownMenuItem key={index} className="flex gap-2 items-center cursor-pointer">
+
+                                {/* {console.log(`here is the result `+ process.env.NEXT_PUBLIC_BACKEND_BASE_URL + category?.icon[0].url)} */}
                                 
-                                <Image src={process.env.NEXT_PUBLIC_API_URL+ category?.icon?.formats?.thumbnail?.url} 
-                                unoptimized={true}
+                                <Image src={
+                                    process.env.NEXT_PUBLIC_BACKEND_BASE_URL +
+                                    category?.icon[0].url}
 
-                                alt="logo" 
-                                width={25} 
-                                height={25} />
+                                    unoptimized={true}
 
-                                <h2>{category?.name}</h2>
+                                    alt="logo"
+                                    width={30}
+                                    height={30} />
+
+
+                                <h2 className="text-md">{category?.name}</h2>
                             </DropdownMenuItem>
                         ))}
 
