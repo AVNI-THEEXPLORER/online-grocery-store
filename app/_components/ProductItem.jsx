@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 function ProductItem(product) {
   console.log(product)
   return (
-    <div className='p-2 md:p-6 flex flex-col items-center justify-center gap-3 border rounded-lg'>
+    <div className='p-2 md:p-6 flex flex-col items-center justify-center gap-3 border rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer'>
       <Image src={process.env.NEXT_PUBLIC_BACKEND_BASE_URL + product?.product?.images[0].url} width={500} height={200} alt={product?.product?.name}
         className='h-[180px] w-[200px]' />
 

@@ -23,6 +23,10 @@ export default async function Home() {
 
      {/* Product List  */}
      <ProductList productList={productList}/>
+
+     {/* Banner  */}
+     <Image src='/logo.png' alt="banner" width={1000} height={400} />
+     <Image src='/banner.png' alt="banner" width={1000} height={400} />
      
     </div>
   );
