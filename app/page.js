@@ -4,6 +4,7 @@ import Slider from "./_components/Slider";
 import GlobalApi from "./_utils/GlobalApi";
 import CategoryList from "./_components/CategoryList";
 import ProductList from "./_components/ProductList";
+import Footer from "./_components/Footer";
 
 
 export default async function Home() {
@@ -25,8 +26,10 @@ export default async function Home() {
      <ProductList productList={productList}/>
 
      {/* Banner  */}
-     <Image src='/logo.png' alt="banner" width={1000} height={400} />
-     <Image src='/banner.png' alt="banner" width={1000} height={400} />
+     <Image src='/banner.png' alt="banner" width={1000} height={400}  className="w-full object-contain h-[400px] "/>
+     
+     {/* Footer  */}
+     <Footer/>
      
     </div>
   );

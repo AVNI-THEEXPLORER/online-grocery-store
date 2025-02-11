@@ -1,11 +1,20 @@
 import React from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import ProductItemDetail from './ProductItemDetail'
 
 function ProductItem(product) {
-  console.log(product)
+  // console.log(product)
   return (
-    <div className='p-2 md:p-6 flex flex-col items-center justify-center gap-3 border rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer'>
+    <section className='p-2 md:p-6 flex flex-col items-center justify-center gap-3 border rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer'>
       <Image src={process.env.NEXT_PUBLIC_BACKEND_BASE_URL + product?.product?.images[0].url} width={500} height={200} alt={product?.product?.name}
         className='h-[180px] w-[200px]' />
 
@@ -21,8 +30,26 @@ function ProductItem(product) {
       </div>
 
 
-      <Button variant='outline' className='text-primary hover:bg-primary hover:text-white'>Add to Cart</Button>
-    </div>
+
+      <Dialog>
+        <DialogTrigger asChild>
+
+          <Button variant='outline' className='text-primary hover:bg-primary hover:text-white'>Add to Cart</Button>
+
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{product?.product?.name}</DialogTitle>
+            <DialogDescription>
+              <ProductItemDetail product={product}/>
+
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+
+
+    </section>
   )
 }
 
