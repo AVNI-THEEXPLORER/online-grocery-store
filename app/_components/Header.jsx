@@ -12,6 +12,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import GlobalApi from '../_utils/GlobalApi'
+import Link from 'next/link'
 
 
 function Header() {
@@ -54,11 +55,12 @@ function Header() {
 
 
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent>
+                    <DropdownMenuContent >
                         <DropdownMenuLabel>Browse Category</DropdownMenuLabel>
 
                         <DropdownMenuSeparator />
                         {categoryList.map((category, index) => (
+                            <Link href={'/products-category/' + category.name}>
                             <DropdownMenuItem key={index} className="flex gap-2 items-center cursor-pointer">
 
                                 {/* {console.log(`here is the result `+ process.env.NEXT_PUBLIC_BACKEND_BASE_URL + category?.icon[0].url)} */}
@@ -76,6 +78,7 @@ function Header() {
 
                                 <h2 className="text-md">{category?.name}</h2>
                             </DropdownMenuItem>
+                            </Link>
                         ))}
 
 
