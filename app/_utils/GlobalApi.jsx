@@ -23,11 +23,34 @@ const getSliders = () => axiosClient.get('/sliders?populate=*').then(resp => {
     return resp.data.data;
     });
 
+    const registerUser=(username,email,password)=>axiosClient.post('/auth/local/register',{
+      username:username,
+      email:email,
+      password:password
+      });
+
+
+      const SignIn=(email,password)=>axiosClient.post('/auth/local', {
+        identifier:email,
+        password:password
+      
+      });
+
+
+      const addToCart=(data,jwt)=>axiosClient.post('/user-carts',data,{
+        headers:{
+          Authorization:'Bearer'+ jwt
+        }
+      });
+
 export default { 
     getCategory ,
     getSliders ,
     getCategoryList ,
     getAllProducts ,
-    getProductByCategory
+    getProductByCategory ,
+    registerUser ,
+    SignIn ,
+    addToCart
 }
     
